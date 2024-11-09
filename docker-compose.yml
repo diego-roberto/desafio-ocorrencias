@@ -1,0 +1,82 @@
+version: "3.8"
+
+networks:
+  network:
+    driver: bridge
+
+services:
+
+  ## API ##
+  ocorrencias-api:
+    build:
+      context: ./ocorrencias-api
+      dockerfile: docker/Dockerfile
+    container_name: ocorrencias-api
+    hostname: ocorrencias-api
+    environment:
+      SPRING_DATASOURCE_URL: 'jdbc:postgresql://postgresql:5432/ocorrencias_db'
+      DB_DRIVER_CLASS: org.postgresql.Driver
+      SPRING_DATASOURCE_USERNAME: api-user
+      SPRING_DATASOURCE_PASSWORD: password
+      CORS_ORIGIN: '*'
+      CORS_WEBSOCKET_ALLOWED_HOST: '*'
+      CORS_METHODS: 'GET,POST,PUT,PATCH,DELETE,OPTIONS,HEAD'
+      CORS_ALLOW_HEADERS: 'Authorization,Content-Type,X-Authorization,authorization,content-type,x-authorization'
+      CORS_ALLOW_CREDENTIALS: 'true'
+      SERVICE_NAME: ocorrencias-api
+      TZ: America/Sao_Paulo
+    working_dir: /app
+    networks:
+      - network
+    depends_on:
+      - postgresql
+    ports:
+      - '8080:8080'
+    restart: always
+
+  ## DB ##
+  postgresql:
+    image: 'postgres:13-alpine'
+    container_name: postgresql
+    hostname: postgresql
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: api-user
+      POSTGRES_DB: ocorrencias_db
+    ports:
+      - '5432:5432'
+    networks:
+      - network
+    volumes:
+      - 'postgres-data:/var/lib/postgresql/data'
+    command: postgres
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U api-user -d ocorrencias_db
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: always
+
+  ## Storage ##
+  minio:
+    image: minio/minio
+    container_name: minio
+    hostname: minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: minyAccess
+      MINIO_ROOT_PASSWORD: minySecret
+    volumes:
+      - minio_storage:/data
+    command: server /data --console-address ":9001"
+    networks:
+      - network
+    restart: always
+
+volumes:
+    postgres-data: null
+    minio_storage:
