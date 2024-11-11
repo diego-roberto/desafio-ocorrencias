@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
+import java.security.MessageDigest;
 
 @Service
 public class StorageService {
@@ -49,5 +50,17 @@ public class StorageService {
         } catch (Exception e) {
             throw new RuntimeException("Erro ocorreu ao realizar upload: " + e.getMessage());
         }
+    }
+
+    public String generateHash(byte[] data) throws Exception {
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        byte[] hash = digest.digest(data);
+        StringBuilder hexString = new StringBuilder();
+        for (byte b : hash) {
+            String hex = Integer.toHexString(0xff & b);
+            if (hex.length() == 1) hexString.append('0');
+            hexString.append(hex);
+        }
+        return hexString.toString();
     }
 }
