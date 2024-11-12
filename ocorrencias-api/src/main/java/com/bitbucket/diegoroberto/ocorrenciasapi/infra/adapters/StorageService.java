@@ -1,9 +1,7 @@
 package com.bitbucket.diegoroberto.ocorrenciasapi.infra.adapters;
 
-import io.minio.BucketExistsArgs;
-import io.minio.MakeBucketArgs;
-import io.minio.MinioClient;
-import io.minio.PutObjectArgs;
+import io.minio.*;
+import io.minio.http.Method;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
 import java.security.MessageDigest;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class StorageService {
@@ -62,5 +61,20 @@ public class StorageService {
             hexString.append(hex);
         }
         return hexString.toString();
+    }
+
+    public String generatePresignedUrl(String objectName) {
+        try {
+            return minioClient.getPresignedObjectUrl(
+                    GetPresignedObjectUrlArgs.builder()
+                            .bucket(bucketName)
+                            .object(objectName)
+                            .method(Method.GET)
+                            .expiry(1, TimeUnit.HOURS)  /* URL expira em 1 hora */
+                            .build()
+            );
+        } catch (Exception e) {
+            throw new RuntimeException("Erro ao gerar URL presignada para " + objectName, e);
+        }
     }
 }
