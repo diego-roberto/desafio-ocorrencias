@@ -1,6 +1,5 @@
 package com.bitbucket.diegoroberto.ocorrenciasapi.unitario.usecase;
 
-import com.bitbucket.diegoroberto.ocorrenciasapi.application.dto.FotoOcorrenciaDTO;
 import com.bitbucket.diegoroberto.ocorrenciasapi.application.dto.OcorrenciaDetalhadaDTO;
 import com.bitbucket.diegoroberto.ocorrenciasapi.application.mapper.DtoMapper;
 import com.bitbucket.diegoroberto.ocorrenciasapi.application.usecase.ocorrencia.ConsultarOcorrencia;
@@ -17,14 +16,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.domain.*;
 import org.springframework.data.jpa.domain.Specification;
 
 import java.util.Collections;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

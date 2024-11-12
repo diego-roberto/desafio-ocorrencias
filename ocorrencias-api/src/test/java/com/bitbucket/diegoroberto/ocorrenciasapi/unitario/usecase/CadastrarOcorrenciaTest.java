@@ -66,7 +66,7 @@ class CadastrarOcorrenciaTest {
     private MockMultipartFile imagem;
 
     @BeforeEach
-    void setUp() throws Exception {
+    void setUp() {
         MockitoAnnotations.openMocks(this);
 
         cliente = Cliente.builder()
