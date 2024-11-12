@@ -4,7 +4,6 @@ import com.bitbucket.diegoroberto.ocorrenciasapi.application.dto.OcorrenciaDTO;
 import com.bitbucket.diegoroberto.ocorrenciasapi.application.mapper.DtoMapper;
 import com.bitbucket.diegoroberto.ocorrenciasapi.domain.entity.Ocorrencia;
 import com.bitbucket.diegoroberto.ocorrenciasapi.infra.repository.OcorrenciaRepository;
-import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
