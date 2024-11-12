@@ -7,7 +7,6 @@ import com.bitbucket.diegoroberto.ocorrenciasapi.domain.entity.Endereco;
 import com.bitbucket.diegoroberto.ocorrenciasapi.domain.entity.Ocorrencia;
 import com.bitbucket.diegoroberto.ocorrenciasapi.infra.repository.ClienteRepository;
 import com.bitbucket.diegoroberto.ocorrenciasapi.infra.repository.EnderecoRepository;
-import com.bitbucket.diegoroberto.ocorrenciasapi.infra.repository.FotoOcorrenciaRepository;
 import com.bitbucket.diegoroberto.ocorrenciasapi.infra.repository.OcorrenciaRepository;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +24,6 @@ public class OcorrenciaService {
 
     @Autowired
     private OcorrenciaRepository ocorrenciaRepository;
-
-    @Autowired
-    private FotoOcorrenciaRepository fotoOcorrenciaRepository;
 
     @Autowired
     private ClienteRepository clienteRepository;

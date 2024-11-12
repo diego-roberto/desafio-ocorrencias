@@ -65,6 +65,18 @@ public class DtoMapper {
             .build();
     }
 
+    public static OcorrenciaDetalhadaDTO toOcorrenciaDetalhadaDTOWithFotosDTOList(Ocorrencia ocorrencia, List<FotoOcorrenciaDTO> fotos) {
+        return OcorrenciaDetalhadaDTO.builder()
+                .codOcorrencia(ocorrencia.getCodOcorrencia())
+                .dataOcorrencia(ocorrencia.getDataOcorrencia())
+                .statusOcorrencia(Boolean.TRUE.equals(ocorrencia.getStatusOcorrencia()) ? "Ativa" : "Finalizada")
+                .cliente(toClienteDTO(ocorrencia.getCliente()))
+                .endereco(toEnderecoDTO(ocorrencia.getEndereco()))
+                .fotos(fotos)
+                .build();
+    }
+
+
     public static List<FotoOcorrenciaDTO> mapeiaListaFotos(List<FotoOcorrencia> fotos) {
         return fotos.stream()
                 .map(DtoMapper::toFotoOcorrenciaDTO)
