@@ -46,12 +46,15 @@ public class ClienteService {
 
     @Transactional
     public void deletarCliente(UUID codCliente) {
-        clienteRepository.deleteById(codCliente);
+        Cliente cliente = clienteRepository.findByCodClienteAndAtivoTrue(codCliente)
+                .orElseThrow(() -> new ServiceException("Cliente não encontrado ou já inativo"));
+        cliente.setAtivo(false);
+        clienteRepository.save(cliente);
     }
 
     public Page<ClienteDTO> listarClientes(int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
-        Page<Cliente> clientesPage = clienteRepository.findAll(pageable);
+        Page<Cliente> clientesPage = clienteRepository.findAllByAtivoTrue(pageable);
         return clientesPage.map(DtoMapper::toClienteDTO);
     }
 

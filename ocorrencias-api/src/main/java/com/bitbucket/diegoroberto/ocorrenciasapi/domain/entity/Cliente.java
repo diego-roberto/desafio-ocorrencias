@@ -33,4 +33,7 @@ public class Cliente {
     @Column(name = "dta_criacao")
     private Date dataCriacao;
 
+    @Column(name = "ativo", nullable = false)
+    private boolean ativo = true;
+
 }

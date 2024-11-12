@@ -35,4 +35,7 @@ public class Endereco {
     @Column(name = "nme_estado", nullable = false)
     private String nomeEstado;
 
+    @Column(name = "ativo", nullable = false)
+    private boolean ativo = true;
+
 }
