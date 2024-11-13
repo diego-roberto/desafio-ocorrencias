@@ -14,6 +14,7 @@ public class EntityMapper {
             .nroCpf(dto.getNroCpf())
             .dataNascimento(dto.getDataNascimento())
             .dataCriacao(dto.getDataCriacao())
+            .ativo(true)
             .build();
     }
 
@@ -25,6 +26,7 @@ public class EntityMapper {
             .numeroCep(dto.getNumeroCep())
             .nomeCidade(dto.getNomeCidade())
             .nomeEstado(dto.getNomeEstado())
+            .ativo(true)
             .build();
     }
 

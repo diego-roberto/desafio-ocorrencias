@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -24,6 +25,7 @@ public class ClienteService {
 
     @Transactional
     public ClienteDTO criarCliente(ClienteDTO clienteDTO) {
+        clienteDTO.setDataCriacao(new Date());
         Cliente cliente = clienteRepository.save(EntityMapper.toCliente(clienteDTO));
         return DtoMapper.toClienteDTO(cliente);
     }
