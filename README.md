@@ -33,7 +33,7 @@ A partir da pasta raiz do projeto, onde se encontra o arquivo docker-compose.yml
 Há um arquivo de collections para importação das requisições em <br> ocorrencias-api/src/main/resources/assets/<b>desafio-ocorrencias.postman_collection.json</b> </br>
 Foi configurado um script para copiar o valor do token para uma variável no postman:
 <p align="center">
-  <img width="800" height="320" src="src/main/resources/assets/postman_collection.png">
+  <img width="800" height="320" src="ocorrencias-api/src/main/resources/assets/postman_collection.png">
 </p>
 
 Feito isso, verifique se os containers estão em execução e faça uma requisição na API 
@@ -48,5 +48,5 @@ utilizando Postman, ou outro software de sua preferência:
 # Modelagem de dados
 
 <p align="center">
-  <img width="460" height="400" src="src/main/resources/assets/db.png">
+  <img width="460" height="400" src="ocorrencias-api/src/main/resources/assets/db.png">
 </p>
