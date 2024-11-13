@@ -12,6 +12,16 @@
 				{
 					"name": "Cadastrar - Cliente",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -27,7 +37,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nomeCliente\": \"João da Silva Sauro\",\n    \"nroCpf\": \"12345678901\",\n    \"dataNascimento\": \"1985-10-12\"\n}",
+							"raw": "{\n    \"nomeCliente\": \"Jorge da Silva Sauro\",\n    \"nroCpf\": \"85296317488\",\n    \"dataNascimento\": \"1980-10-10\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -51,6 +61,16 @@
 				{
 					"name": "Deletar - Cliente",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [
 							{
@@ -91,6 +111,16 @@
 				{
 					"name": "Atualizar - Cliente",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
@@ -134,6 +164,16 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -165,6 +205,16 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -197,8 +247,18 @@
 			"name": "enderecos",
 			"item": [
 				{
-					"name": "Atualizar - Endereco",
+					"name": "Cadastrar - Endereco",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -214,7 +274,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Fulano\",\n    \"cpf\": \"24040942035\"\n}",
+							"raw": "{\n    \"nomeLogradouro\": \"Rua AAA\",\n    \"nomeBairro\": \"Bairro XXX\",\n    \"numeroCep\": \"12345000\",\n    \"nomeCidade\": \"Cidade AAA\",\n    \"nomeEstado\": \"Estado AAA\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -222,16 +282,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8082/api/clients/",
+							"raw": "http://localhost:8080/enderecos",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8082",
+							"port": "8080",
 							"path": [
-								"api",
-								"clients",
-								""
+								"enderecos"
 							]
 						}
 					},
@@ -240,6 +298,16 @@
 				{
 					"name": "Deletar - Endereco",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [
 							{
@@ -280,6 +348,16 @@
 				{
 					"name": "Atualizar - Endereco",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
@@ -323,6 +401,16 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -403,6 +491,16 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -434,6 +532,16 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -505,6 +613,16 @@
 				{
 					"name": "Finalizar - Ocorrencia",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
@@ -537,6 +655,16 @@
 				{
 					"name": "Atualizar - Ocorrencia",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
@@ -552,7 +680,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"codCliente\": \"ba03ef34-e0d9-4b6b-93cf-e23e6ddefb7e\",\n    \"codEndereco\": \"17aa966f-2eb4-4ea2-8ed7-5935f1b4e373\",\n    \"dataOcorrencia\": \"2023-11-12\"\n}",
+							"raw": "{\n    \"codCliente\": \"25391aa2-271d-448f-a748-a2ebffaec941\",\n    \"codEndereco\": \"f351150e-e24f-464c-8c26-5e977bff9ced\",\n    \"dataOcorrencia\": \"2023-11-15\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -580,6 +708,16 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -609,6 +747,16 @@
 				{
 					"name": "Cadastrar - Ocorrencia",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -621,7 +769,7 @@
 								},
 								{
 									"key": "codEndereco",
-									"value": "17aa966f-2eb4-4ea2-8ed7-5935f1b4e373",
+									"value": "{{codEndereco}}",
 									"type": "text"
 								},
 								{
@@ -655,9 +803,9 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"var data = JSON.parse(responseBody);",
-							"postman.clearGlobalVariable(\"token\");",
-							"postman.setGlobalVariable(\"token\", data.token);"
+							"var data = pm.response.json();",
+							"pm.collectionVariables.clear(\"token\");",
+							"pm.collectionVariables.set(\"token\", data.token);"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -735,6 +883,21 @@
 		{
 			"key": "token",
 			"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbmlzdHJhZG9yIiwiZXhwIjoxNzAwNTMyOTUyfQ.xIHE8P0Ct-kupIwHpkZ1Fxtq7VEn_Gd8lIGJj1trutRbTQ5c74vAFIXRGHkdB-dlsYtIrpxwwSXueIB88ScCbg"
+		},
+		{
+			"key": "codCliente",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "codEndereco",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "codOcorrencia",
+			"value": "",
+			"type": "default"
 		}
 	]
 }
