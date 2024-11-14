@@ -20,6 +20,8 @@ Testes com JUnit 5.10.2 e Mockito </br>
 API, DB e Storage containerizados com Docker e orquestrados com docker-compose
 </br>
 
+[Requisitos](https://github.com/diego-roberto/desafio-ocorrencias/blob/e85df45ee8c732024ede035d5b8f0ca65c02377e/ocorrencias-api/src/main/resources/assets/Teste%20-%20Dev%20Backend.pdf)
+
 ## Executando em ambiente local com Docker 🐋
 A partir da pasta raiz do projeto, onde se encontra o arquivo docker-compose.yml, execute o comando para iniciar o container:
 > docker-compose up --build
@@ -50,3 +52,5 @@ utilizando Postman, ou outro software de sua preferência:
 <p align="center">
   <img width="460" height="400" src="ocorrencias-api/src/main/resources/assets/db.png">
 </p>
+
+<h1>Fique à vontade para clonar e usar em sua prova, eles não vão olhar mesmo...</h1>
